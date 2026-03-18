@@ -1,5 +1,7 @@
 import yfinance as yf
 import pandas as pd
+import matplotlib
+matplotlib.use('TkAgg')  # Явно указываем бэкенд
 import matplotlib.pyplot as plt
 
 # 1. СКАЧИВАЕМ ДАННЫЕ
