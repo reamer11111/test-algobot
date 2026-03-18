@@ -1,7 +1,5 @@
 import yfinance as yf
 import pandas as pd
-import matplotlib
-matplotlib.use('TkAgg')  # Явно указываем бэкенд
 import matplotlib.pyplot as plt
 
 # 1. СКАЧИВАЕМ ДАННЫЕ
@@ -46,4 +44,13 @@ plt.plot(market_cum, label='Просто Биткоин', color='gray', linestyl
 plt.title('Бэк тест: Робот против Рынка')
 plt.legend()
 plt.grid(True)
-plt.show()
+plt.savefig('chart.png', dpi=150, bbox_inches='tight')
+print("График сохранён в файл: chart.png")
+
+# Для Google Colab - показываем изображение
+try:
+    from google.colab import files
+    display(plt.gcf())
+    files.download('chart.png')
+except ImportError:
+    plt.show()
